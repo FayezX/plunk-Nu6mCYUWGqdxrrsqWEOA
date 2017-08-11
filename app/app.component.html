@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body class="page">
+        <h1>
+          {{title}}  
+        </h1>
+        <form>
+          <label for="temperature">Add Temperature Below:</label><br>
+          <input class="input" name="temperature" id="temperature" [(ngModel)]="temperatures">
+          <button class="button" (click)="setTemp()">ADD</button>
+        </form>
+        <br>
+        <div class="progress">
+            <div class="progress-bar" 
+                role="progressbar" aria-valuemin="0" 
+                aria-valuemax="100" [style.width]="progressBar">
+                <span class="sr-only">{{getPercentage()}}% Complete</span>
+            </div>
+            <button type="button" class="btn btn-sm btn-default">{{this.tempService.temp.length}}/8 Full</button>
+        </div>  
+        <section>
+          <button class="button" (click)="getMedian()">Get Median Temperature</button> <br>
+          Current Median: {{median}}
+        </section>
+        <hr>
+        <p class="paragraph">Developer Name: Fayez </p>
+        <hr>
+        <a href="jasmine-test-runner.html">Run Unit Tests</a>
+    </body>
+</html>
+
